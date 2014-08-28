@@ -1,0 +1,14 @@
+{
+  "name": "angular-promise-poller",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cpitt/angular-promise-poller",
+  "description": "polls promises",
+  "author": "cpitt",
+  "license": "MIT",
+  "devDependencies": {
+    "karma": "^0.12.22",
+    "karma-jasmine": "^0.1.5",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}

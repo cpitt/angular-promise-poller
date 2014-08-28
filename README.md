@@ -34,6 +34,5 @@ angular.module('myApp')
 ```
 
 # TODO
-* Tests
-* Complete Documentation
-* Bowerize
+* More Testing
+* More thorough Documentation
