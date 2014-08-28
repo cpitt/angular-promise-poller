@@ -18,9 +18,7 @@ angular.module('myApp')
           return deferred.promise
        }
       
-      var poller = PollerService.create(derpPromise, 
-                                        500, 
-                                        function(derp){ $scope.derp = derp });
+      var poller = PollerService.create(derpPromise, 500, function(derp){ $scope.derp = derp });
 
       //with function
       var herpFunction = function(){
@@ -28,9 +26,7 @@ angular.module('myApp')
             deferred.resolve(Math.random())
           }, 1000)
       }
-      var poller2 = PollerService.create(herpFunction, 
-                                         5000,
-                                         function(herp){ $scope.herp = herp });
+      var poller2 = PollerService.create(herpFunction, 5000, function(herp){ $scope.herp = herp });
 
      }]
   )
