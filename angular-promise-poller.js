@@ -8,7 +8,7 @@ angular.module('cpitt.promisePoller', [])
         this.freq = freq;
         this.callback = callback;
         //wrap the function or promise in a new promise
-        this.pollerPromise = $q.when(pollerFunction());
+        this.pollerPromise = $q.when(pollerFunction);
       }
 
       Poller.prototype.start = function() {
