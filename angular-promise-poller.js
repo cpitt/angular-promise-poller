@@ -7,9 +7,14 @@ angular.module('cpitt.promisePoller', [])
         this.pollerFunction = pollerFunction;
         this.freq = freq;
         this.callback = callback;
-        //wrap the function or promise in a new promise
-        this.pollerPromise = $q.when(pollerFunction);
+
+        this.createPollerPromise = function(){
+          return typeof pollerFunction === 'function' ? $q.when(pollerFunction()) : $q.when(pollerFunction);
+        }
+
+        this.pollerPromise = this.createPollerPromise();
       }
+
 
       Poller.prototype.start = function() {
         var self = this,
@@ -20,7 +25,7 @@ angular.module('cpitt.promisePoller', [])
               self.pollerPromise.then(function(result){
                 run = true;
                 self.callback(result);
-                self.pollerPromise = $q.when(self.pollerFunction()); //reset the promise
+                self.pollerPromise = self.createPollerPromise();
               })
           }
         }
