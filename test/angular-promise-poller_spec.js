@@ -73,6 +73,26 @@ describe('Promise Poller', function(){
        expect(response).toEqual(pollerFunction())
       })
 
+      it('should stop itself', function(){
+        poller.stop()
+        expect(poller.intervalPromise).not.toBeDefined();
+      })
+
+      it('should start itself', function(){
+        poller.stop();
+        poller.start();
+        expect(poller.intervalPromise).toBeDefined();
+      })
+
+      it('should restart itself', function(){
+        spyOn(poller, 'stop');
+        spyOn(poller, 'start');
+        poller.restart();
+        expect(poller.stop).toHaveBeenCalled();
+        expect(poller.start).toHaveBeenCalled();
+      })
+
+
     })
   });
 
@@ -89,6 +109,32 @@ describe('Promise Poller', function(){
       PollerService.create(pollerFunction, 500 , callback)
       PollerService.create(pollerFunction, 500, callback)
       expect(PollerService.pollers.length).toEqual(2)
+    })
+
+    it('should stop all pollers', function(){
+      var p1 = PollerService.create(pollerFunction, 500 , callback)
+      var p2 = PollerService.create(pollerFunction, 500, callback)
+
+      spyOn(p1, 'stop')
+      spyOn(p2, 'stop')
+
+      PollerService.stopAll();
+
+      expect(p1.stop).toHaveBeenCalled();
+      expect(p2.stop).toHaveBeenCalled();
+    })
+
+    it('should restart all pollers', function(){
+      var p1 = PollerService.create(pollerFunction, 500 , callback)
+      var p2 = PollerService.create(pollerFunction, 500, callback)
+
+      spyOn(p1, 'restart')
+      spyOn(p2, 'restart')
+
+      PollerService.restartAll();
+
+      expect(p1.restart).toHaveBeenCalled();
+      expect(p2.restart).toHaveBeenCalled();
     })
   })
 
