@@ -1,18 +1,5 @@
 'use strict';
 angular.module('cpitt.promisePoller', [])
-  .run(
-    [        '$rootScope', 'PollerService',
-    function( $rootScope,   PollerService){
-
-      $rootScope.$on('$routeChangeStart', function(){
-        PollerService.stopAll();
-      });
-
-      $rootScope.$on('$stateChangeStart', function(){
-        PollerService.stopAll();
-      });
-
-    }])
 
   .factory('PollerFactory',
     [        '$interval', '$q',

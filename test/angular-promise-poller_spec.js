@@ -139,20 +139,6 @@ describe('Promise Poller', function(){
       expect(p2.restart).toHaveBeenCalled();
     });
 
-    describe('Route and State change listeners', function(){
-
-      it('should stop all on routeChangeStart', function(){
-        spyOn(PollerService, 'stopAll');
-        $rootScope.$broadcast('$routeChangeStart');
-        expect(PollerService.stopAll).toHaveBeenCalled();
-      });
-
-      it('should stop all on stateChangeStart', function(){
-        spyOn(PollerService, 'stopAll');
-        $rootScope.$broadcast('$stateChangeStart');
-        expect(PollerService.stopAll).toHaveBeenCalled();
-      });
-    });
   });
 
 });
