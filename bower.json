@@ -1,7 +1,7 @@
 {
   "name": "angular-promise-poller",
   "main": "angular-promise-poller.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/cpitt/angular-promise-poller",
   "authors": [
     "cpitt <me@cpitt.com>"
