@@ -17,5 +17,13 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "^0.6.0"
+  },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/cpitt/angular-promise-poller.git"
+  },
+  "scripts": {
+    "test": "grunt"
   }
+
 }
