@@ -1,5 +1,5 @@
-# Angular Promise Poller
-![build status]( https://travis-ci.org/cpitt/angular-promise-poller.svg?branch=master )
+# Angular Promise Poller ![build status]( https://travis-ci.org/cpitt/angular-promise-poller.svg?branch=master )
+
 Polls promises (or functions) on a given interval
 
 # Usage 
